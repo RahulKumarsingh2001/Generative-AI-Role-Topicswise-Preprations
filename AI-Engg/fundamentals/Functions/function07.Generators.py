@@ -4,6 +4,10 @@
 # When a generator function is called, it returns a generator object, which is an iterator.
 
 
+#Generator functions
+# A generator function uses yield to produce values one at a time rather than returning all of them at
+
+
 def my_generator():
   yield 1
   yield 2
