@@ -95,3 +95,78 @@ for index, value in enumerate(numbers):
 numbers = [1, 2, 3, 4, 5]
 square = [x**2 for x in numbers]
 print(square)  # [1, 4, 9, 16, 25]
+even = [x for x in numbers if x % 2 == 0]
+print(even)  # [2, 4]
+conditional_lable = ["even" if x % 2 == 0 else "odd" for x in numbers]
+print(conditional_lable)  # ['odd', 'even', 'odd', 'even', 'odd']
+
+
+
+
+
+
+# list operators
+numbers = [10, 20, 30, 40]
+
+print(len(numbers))  # 4
+print(sum(numbers))  # 100
+print(min(numbers))  # 10
+print(max(numbers))  # 40
+print(20 in numbers) # True
+
+
+
+
+
+# Copying a List: Shallow Copy vs Aliasing
+# Aliasing
+a = [1, 2, 3]
+b = a
+
+b.append(4)
+
+print(a)  # [1, 2, 3, 4]
+print(b)  # [1, 2, 3, 4]
+
+
+# Shallow copy
+a = [1, 2, 3]
+b = a.copy()
+
+b.append(4)
+
+print(a)  # [1, 2, 3]
+print(b)  # [1, 2, 3, 4]
+
+
+
+
+
+# nested lists
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix[0])     # [1, 2, 3]
+print(matrix[1][2])  # 6
+
+
+
+# Operation	Typical         time complexity
+# Index access a[i]	        \(O(1)\)
+# Update a[i] = x	        \(O(1)\)
+# Append to end	            \(O(1)\) amortized
+# Pop from end	            \(O(1)\)
+# Insert at beginning	    \(O(n)\)
+# Delete from beginning	    \(O(n)\)
+# Search with x in a	    \(O(n)\)
+# Remove by value	        \(O(n)\)
+# Sort	                    \(O(n\log n)\)
+# Copy a list	            \(O(n)\)
+
+
+
+
+
