@@ -49,3 +49,74 @@ numbers.update([5, 6])
 numbers.discard(2)
 
 print(numbers) # {1, 3, 4, 5, 6}
+
+
+
+# What is the difference between remove() and discard()?
+# - remove() raises KeyError if the element does not exist.
+# - discard() does not raise an error if the element does not exist.
+
+
+
+
+
+
+# Mathematical Set Operations
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Union
+print(A | B) # {1, 2, 3, 4, 5, 6}
+print(A.union(B)) # {1, 2, 3, 4, 5, 6}
+
+# Intersection
+print(A & B) # {3, 4}
+print(A.intersection(B)) # {3, 4}
+
+# difference
+print(A - B) # {1, 2}
+print(A.difference(B)) # {1, 2}
+
+# Symmetric difference:- Returns elements present in either set, but not both.
+print(A ^ B) # {1, 2, 5, 6}
+
+
+
+
+
+
+# Membership Testing
+numbers = {10, 20, 30, 40}
+
+print(20 in numbers)
+print(50 in numbers)
+
+
+
+
+
+
+
+# Frozen Sets:- A frozenset is an immutable version of a set.
+
+numbers = frozenset([1, 2, 3])
+
+print(numbers)
+# you cant add or remove elements from a frozenset
+
+
+
+
+
+
+# set not conatin list
+
+
+
+
+
+A = {1, 2}
+B = {3, 4}
+
+print(A.isdisjoint(B)) # True
+# it can check all set contain unique elements or not
