@@ -1,0 +1,91 @@
+Metadata-Version: 2.4
+Name: data-validator
+Version: 0.1.0
+Summary: A reusable Python package for reading and validating JSON and CSV data
+License-Expression: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+
+# Data Validator
+
+A reusable Python package for reading and validating JSON and CSV files.
+
+## Features
+
+- Read JSON and CSV files.
+- Automatically detect formats using file extensions.
+- Validate required fields.
+- Validate expected Python data types.
+- Optionally coerce compatible values into expected types.
+- Support custom field validation functions.
+- Return structured validation results and errors.
+- Handle file and parsing errors.
+- Includes automated tests.
+
+## Installation
+
+Create a virtual environment and install the package:
+
+    python -m venv .venv
+
+Activate it on macOS/Linux:
+
+    source .venv/bin/activate
+
+Install the package and development dependencies:
+
+    python -m pip install -e ".[dev]"
+
+## Usage
+
+    from data_validator import read_data, validate_records
+
+    records = read_data("examples/users.json")
+
+    result = validate_records(
+        records,
+        required_fields=["name", "email", "age"],
+        field_types={
+            "name": str,
+            "email": str,
+            "age": int,
+        },
+    )
+
+    print("Valid records:", result.valid_records)
+    print("Invalid records:", result.invalid_records)
+
+    for error in result.errors:
+        print(error)
+
+## CSV type conversion
+
+CSV values are strings by default. Use `coerce_types=True`
+to convert compatible values:
+
+    records = read_data("examples/users.csv")
+
+    result = validate_records(
+        records,
+        required_fields=["name", "email", "age"],
+        field_types={
+            "name": str,
+            "email": str,
+            "age": int,
+        },
+        coerce_types=True,
+    )
+
+## Run tests
+
+    pytest -v
+
+## Limitations
+
+- JSON input must be a list of objects.
+- CSV input must have a header row.
+- Custom validators must return True for valid values.
+- Type coercion uses Python constructors and may require
+  additional rules for complex data types.
