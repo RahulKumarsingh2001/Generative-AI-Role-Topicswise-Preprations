@@ -149,3 +149,92 @@ class Student:
 s1 = Student("Rahul", [85, 90, 78])
 s1.average_marks()  # Average marks of Rahul is 84.333333333333        
             
+            
+            
+            
+            
+            
+'''
+Static Methods
+
+Methods that don't used the self parameter (work at a class level)
+'''
+
+class Student:
+    @staticmethod      # decorator
+    def college():
+        print("GIET")
+        
+        
+
+
+
+'''
+Abstraction
+    -> Hiding the implementation details of a class and only showing the essential features to the user.
+
+Why do we use Abstraction?
+    -> To hide unnecessary implementation details.
+    -> To reduce code complexity.
+    -> To define a common structure for child classes.    
+
+'''
+
+class Car:
+    def __init__(self):
+        self.acc = False
+        self.brk = False
+        self.clutch = False
+        
+    def start(self):
+        self.clutch = True              # these are the implementation details. we are hiding these details from the user
+        self.acc = True             # these are the implementation details. we are hiding these details from the user
+        print("Car started....")            
+
+
+car1 = Car()
+car1.start()  # Car started....      
+
+
+
+'''
+Encapsulation
+    -> Wrapping data and function into single unit.
+    
+Why do we use Encapsulation?
+    -> To protect data from unwanted direct modification.
+    -> To keep data and related methods together.
+'''      
+
+
+# Create a account class with 2 attributes - balance and account_number.
+# create a methods for debit, credit and printing a balance.
+
+
+class Account:
+    def __init__(self, bal, acc):
+        self.balance = bal
+        self.account_number = acc
+        
+    # debit method
+    def debit(self, amount):
+        self.balance = self.balance - amount
+        print(f"Debited {amount}. New balance is {self.balance}")
+        print(f"Total balance is {self.get_balance()}")
+        
+    # debit method
+    def credit(self, amount):
+        self.balance = self.balance + amount
+        print(f"Credited {amount}. New balance is {self.balance}")  
+        print(f"Total balance is {self.get_balance()}") 
+            
+    # balance method
+    def get_balance(self):
+        return self.balance         
+        
+acc1 = Account(10000, "123456789")
+print(acc1.balance)
+print(acc1.account_number)       
+
+acc1.debit(1000) 
+acc1.credit(2000)
